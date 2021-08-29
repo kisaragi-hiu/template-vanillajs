@@ -1,7 +1,7 @@
 src_js := $(wildcard src/*.js)
 src_css := $(wildcard src/*.css)
 
-.PHONY: dev clean build watch-js watch-css open-browser
+.PHONY: dev clean clean-all build watch-js watch-css open-browser
 
 # * Utils
 # Visit the page after a second
@@ -13,7 +13,10 @@ open-browser:
 	 xdg-open "http://localhost:8080")
 
 clean:
-	rm dist/*.js
+	git clean -Xf
+
+clean-all:
+	git clean -Xdf
 
 # * Development
 

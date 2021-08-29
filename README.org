@@ -27,4 +27,5 @@ Commands:
   - make watch-css :: auto css rebuild
   - make open-browser :: open page in browser if it's not already. Only avoids opening the page again in Firefox because I didn't bother implementing it for other browsers. See [[file:firefox-page-opened.py]].
 - make clean :: delete every built file
+  - make clean-all :: also delete =node_modules=
 - make build :: build for production
