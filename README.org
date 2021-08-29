@@ -1,0 +1,30 @@
+* My pure JavaScript Template
+
+- TailwindCSS + PostCSS
+- Babel + Webpack (might as well set it up)
+- entry point:
+  - JS: src/main.js
+  - CSS: src/main.css
+  - I assume the main HTML file to be static. Edit =dist/index.html= directly.
+- Built files:
+  - JS: dist/built.js
+  - CSS: dist/built.css
+  - HTML: dist/index.html
+
+If you (I) need anything more complex, use a proper framework instead.
+
+** Usage
+
+1. =npm install=
+2. Maybe generate a favicon with realfavicongenerator
+3. Fill in HTML title, description, author, keywords
+4. Bring in web fonts if you want
+
+Commands:
+
+- make dev :: start a dev server; actually a combination of
+  - make watch-js :: dev server & auto javascript rebuild
+  - make watch-css :: auto css rebuild
+  - make open-browser :: open page in browser if it's not already. Only avoids opening the page again in Firefox because I didn't bother implementing it for other browsers. See [[file:firefox-page-opened.py]].
+- make clean :: delete every built file
+- make build :: build for production
