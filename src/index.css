@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    width: min(95%, 40rem);
+    margin: 10rem auto;
+  }
   h1 {
     @apply font-bold text-4xl;
     @apply mb-2;

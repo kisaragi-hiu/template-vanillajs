@@ -3,7 +3,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import livereload from "rollup-plugin-livereload";
 
 export default {
-  input: "src/built.js",
+  input: "src/index.js",
   output: {
     dir: "dist",
     format: "esm",

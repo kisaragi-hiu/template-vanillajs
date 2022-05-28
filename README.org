@@ -1,14 +1,14 @@
 * My pure JavaScript Template
 
 - TailwindCSS + PostCSS
-- Babel + Webpack (might as well set it up)
+- Babel + Rollup (might as well set it up)
 - entry point:
-  - JS: src/main.js
-  - CSS: src/main.css
+  - JS: src/index.js
+  - CSS: src/index.css
   - I assume the main HTML file to be static. Edit =dist/index.html= directly.
 - Built files:
-  - JS: dist/built.js
-  - CSS: dist/built.css
+  - JS: dist/index.js
+  - CSS: dist/index.css
   - HTML: dist/index.html
 
 If you (I) need anything more complex, use a proper framework instead.
@@ -23,9 +23,9 @@ If you (I) need anything more complex, use a proper framework instead.
 Commands:
 
 - make dev :: start a dev server; actually a combination of
-  - make watch-js :: dev server & auto javascript rebuild
+  - make watch-js :: auto javascript rebuild
   - make watch-css :: auto css rebuild
-  - make open-browser :: open page in browser if it's not already. Only avoids opening the page again in Firefox because I didn't bother implementing it for other browsers. See [[file:firefox-page-opened.py]].
+  - make serve :: actually starting the server at 8080
 - make clean :: delete every built file
   - make clean-all :: also delete =node_modules=
 - make build :: build for production
