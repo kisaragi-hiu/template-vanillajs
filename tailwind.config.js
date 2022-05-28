@@ -8,9 +8,7 @@ let cjkFallback = [
 ];
 
 module.exports = {
-  purge: ["./dist/**/*.html"],
-  mode: "jit",
-  darkMode: false, // or 'media' or 'class'
+  content: ["./dist/**/*.html"],
   theme: {
     fontFamily: {
       sans: ["'M PLUS 1p'", ...cjkFallback, "sans-serif"],
@@ -34,8 +32,5 @@ module.exports = {
         // a: "0.25rem solid #b16154",
       },
     },
-  },
-  variants: {
-    extend: {},
   },
 };

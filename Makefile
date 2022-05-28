@@ -1,16 +1,9 @@
 src_js := $(wildcard src/*.js)
 src_css := $(wildcard src/*.css)
 
-.PHONY: dev clean clean-all build watch-js watch-css open-browser
+.PHONY: dev clean clean-all watch-js watch-css serve dev build
 
 # * Utils
-# Visit the page after a second
-# Unless Firefox is already open and has a tab visiting the page
-# (I've only bothered to support Firefox here)
-open-browser:
-	-(sleep 1 && \
-	 !(pgrep firefox && python firefox-page-opened.py "localhost:8080") && \
-	 xdg-open "http://localhost:8080")
 
 clean:
 	git clean -Xf
@@ -21,19 +14,22 @@ clean-all:
 # * Development
 
 watch-js:
-	npx webpack serve --mode development --client-overlay
+	npx rollup --config -w
 
 watch-css:
 	npx tailwindcss --postcss -i src/main.css -o dist/built.css --watch
 
+serve:
+	(cd dist/ && python -m http.server 8080 2>/dev/null)
+
 dev: dist/index.html
-	npx concurrently "make open-browser" "make watch-js" "make watch-css"
+	npx concurrently "make watch-js" "make watch-css" "make serve"
 
 # * build
 build: dist/built.js dist/built.css dist/index.html
 
 dist/built.js: $(src_js) package.json Makefile
-	npx webpack --mode production
+	npx rollup --config
 
 dist/built.css: $(src_css) package.json Makefile
 	npx tailwindcss --minify --postcss -i src/main.css -o dist/built.css
